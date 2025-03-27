@@ -37,6 +37,8 @@ app.get('/books/details', async (req, res) => {
       return res.status(400).json({ error: 'Title query parameter is required' });
     }
 
+    console.log('searching for title', title)
+
     // Search for books with the given title
     const books = await search(title, {
       searchResults: 1, // We only need the first result
@@ -89,6 +91,8 @@ app.get('/books/details', async (req, res) => {
 
     // Return the successful response
     res.json(response);
+
+    console.log("RESPONSE ", response.pages, response.author, response.genre)
 
   } catch (error) {
     console.error('Error fetching book details:', error);
