@@ -60,6 +60,8 @@ app.get('/books/details', async (req, res) => {
       book = books[0]; // Take the first result
     }
 
+    console.log("book ", book)
+
     // Prepare response object
     const response = {
       title: book.title,
